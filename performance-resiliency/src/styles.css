@@ -30,7 +30,9 @@ a {
   margin: 0 auto;
 }
 
-/* Header */
+/* =========================
+   Header
+========================= */
 
 .app-header {
   background-color: #111827;
@@ -65,7 +67,9 @@ nav {
   color: #22d3ee;
 }
 
-/* Main layout */
+/* =========================
+   Main Layout
+========================= */
 
 .main-content {
   padding-top: 40px;
@@ -99,7 +103,9 @@ nav {
   border-radius: 20px;
 }
 
-/* Home */
+/* =========================
+   Home
+========================= */
 
 .feature-list {
   line-height: 2;
@@ -120,7 +126,9 @@ nav {
   background: #0e7490;
 }
 
-/* Person Detail */
+/* =========================
+   Person Detail
+========================= */
 
 .person-card {
   max-width: 720px;
@@ -180,7 +188,75 @@ nav {
   margin-top: 30px;
 }
 
-/* Responsive */
+/* =========================
+   Task 3: Loading Fallback
+========================= */
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+  min-height: 250px;
+  padding: 32px;
+
+  background-color: white;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Spinner */
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+
+  border: 5px solid #e5e7eb;
+  border-top-color: #0891b2;
+
+  border-radius: 50%;
+
+  animation: spinner-rotate 0.8s linear infinite;
+}
+
+/* Loading message */
+
+.loading-message {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+
+  text-align: center;
+}
+
+/* Spinner animation */
+
+@keyframes spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* =========================
+   Responsive
+========================= */
 
 @media (max-width: 600px) {
   .header-content {
@@ -199,5 +275,15 @@ nav {
   .person-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .loading-container {
+    min-height: 200px;
+    padding: 20px;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
   }
 }

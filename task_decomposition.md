@@ -86,3 +86,58 @@ Task 2: React.lazy() & Route-Level Code Splitting
 |   +-- Inspect generated JavaScript chunks
 |   +-- Verify lazy loading in Network panel
 
+# Task 3 — Suspense Boundaries & Loading Fallbacks
+
+## Objective
+
+Improve the loading experience for lazy-loaded React
+components using reusable loading fallbacks and
+React Suspense boundaries.
+
+## Task Decomposition
+
+Task 3: Suspense Boundaries & Loading Fallbacks
+|
++-- 3.1 Analyze Existing Suspense Implementation
+|   |
+|   +-- Review React.lazy() from Task 2
+|   +-- Identify existing Suspense boundary
+|   +-- Identify limitations of text-only fallback
+|
++-- 3.2 Create Reusable Loading Component
+|   |
+|   +-- Create src/components directory
+|   +-- Create LoadingFallback.jsx
+|   +-- Implement loading spinner
+|   +-- Add loading message
+|   +-- Add basic accessibility attributes
+|
++-- 3.3 Implement Loading Styles
+|   |
+|   +-- Update styles.css
+|   +-- Create spinner animation
+|   +-- Style loading container
+|   +-- Support reduced-motion preferences
+|
++-- 3.4 Integrate Suspense Boundary
+|   |
+|   +-- Update App.jsx
+|   +-- Import LoadingFallback
+|   +-- Replace text-only fallback
+|   +-- Keep Suspense within page content
+|   +-- Preserve navigation and routing
+|
++-- 3.5 Test Loading Behavior
+|   |
+|   +-- Run development server
+|   +-- Verify Home route
+|   +-- Verify PersonDetail route
+|   +-- Simulate slow network
+|   +-- Verify fallback appears
+|   +-- Verify content replaces fallback
+|   +-- Verify navigation remains visible
+|   +-- Run production build
+
+
+
+
