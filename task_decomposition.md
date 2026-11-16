@@ -59,3 +59,34 @@ Task 2: Implement Declarative Routing
 |   +-- Verify active link styling
 |   +-- Verify production build
 
+# Task 3 — Nested Routes & Shared Layouts
+
+```text
+Task 3: Nested Routes & Shared Layouts
+|
++-- 3.1 Create Shared Layout
+|   +-- Create src/layouts/MainLayout.jsx
+|   +-- Move application heading into MainLayout
+|   +-- Move existing NavLink navigation into MainLayout
+|   +-- Preserve active link styling
+|
++-- 3.2 Implement Outlet
+|   +-- Import Outlet from react-router
+|   +-- Render Outlet inside MainLayout
+|   +-- Display child route content through Outlet
+|
++-- 3.3 Implement Nested Routes
+|   +-- Update src/App.jsx
+|   +-- Define parent Layout route
+|   +-- Define Home as index route
+|   +-- Define About as nested route
+|
++-- 3.4 Verify Application
+|   +-- Verify Home renders at /
+|   +-- Verify About renders at /about
+|   +-- Verify shared layout remains visible
+|   +-- Verify active NavLink styling
+|   +-- Verify navigation without page reload
+|   +-- Verify production build
+
+
