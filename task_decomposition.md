@@ -202,6 +202,78 @@ Task 4: Skeleton UI & Zero Layout Shift
 |   +-- Inspect layout shifts in DevTools
 |   +-- Run production build
 
+# Task 5 — Accessibility & Resiliency
+
+## Objective
+
+Improve accessibility, keyboard usability, and error
+recovery for the React 19 application.
+
+## Task Decomposition
+
+Task 5: Accessibility & Resiliency
+|
++-- 5.1 Analyze Existing Implementation
+|   |
+|   +-- Review React.lazy() implementation
+|   +-- Review Suspense boundary
+|   +-- Review PersonDetailSkeleton
+|   +-- Identify accessibility limitations
+|   +-- Identify lazy-loading failure scenarios
+|
++-- 5.2 Improve Loading Accessibility
+|   |
+|   +-- Update PersonDetailSkeleton.jsx
+|   +-- Add aria-busy to loading region
+|   +-- Add role="status"
+|   +-- Add aria-live="polite"
+|   +-- Hide decorative skeleton elements
+|   +-- Keep accessible loading message
+|
++-- 5.3 Improve Keyboard Accessibility
+|   |
+|   +-- Add Skip to main content link
+|   +-- Add main landmark identifier
+|   +-- Add visible keyboard focus styles
+|   +-- Ensure navigation uses semantic links
+|   +-- Preserve accessible button labels
+|
++-- 5.4 Implement Error Recovery
+|   |
+|   +-- Create RouteErrorBoundary.jsx
+|   +-- Catch rendering and lazy-load failures
+|   +-- Display accessible error fallback
+|   +-- Add Reload page button
+|   +-- Preserve navigation outside boundary
+|
++-- 5.5 Integrate Accessibility Improvements
+|   |
+|   +-- Update App.jsx
+|   +-- Wrap PersonDetail with Error Boundary
+|   +-- Preserve Suspense and lazy loading
+|   +-- Add main landmark and skip link
+|   +-- Update PersonDetail loading state
+|
++-- 5.6 Update Styles
+|   |
+|   +-- Add focus-visible styles
+|   +-- Add skip-link styling
+|   +-- Add error fallback styling
+|   +-- Preserve skeleton dimensions
+|   +-- Support reduced-motion preferences
+|
++-- 5.7 Verification
+|   |
+|   +-- Verify Home and PersonDetail routes
+|   +-- Test keyboard navigation
+|   +-- Test skip link
+|   +-- Inspect accessibility attributes
+|   +-- Test loading status
+|   +-- Test lazy-loading failure recovery
+|   +-- Verify reduced-motion support
+|   +-- Run production build
+
+
 
 
 

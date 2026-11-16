@@ -10,7 +10,11 @@ const person = {
 
 function PersonDetail() {
   return (
-    <section className="card person-card person-layout">
+    <section
+      className="card person-card person-layout"
+      aria-busy="false"
+      aria-labelledby="person-heading"
+    >
       <span className="tag">
         Person Detail
       </span>
@@ -21,7 +25,9 @@ function PersonDetail() {
         </div>
 
         <div>
-          <h2>{person.name}</h2>
+          <h2 id="person-heading">
+            {person.name}
+          </h2>
 
           <p className="person-role">
             {person.role}
@@ -37,7 +43,11 @@ function PersonDetail() {
 
         <div className="info-row">
           <strong>Email:</strong>
-          <span>{person.email}</span>
+          <span>
+            <a href={`mailto:${person.email}`}>
+              {person.email}
+            </a>
+          </span>
         </div>
 
         <div className="info-row">
