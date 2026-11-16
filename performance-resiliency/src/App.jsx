@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import LoadingFallback from "./components/LoadingFallback";
+import PersonDetailSkeleton from "./components/PersonDetailSkeleton";
 
 // Task 2: Lazy-loaded route
 const PersonDetail = lazy(() =>
@@ -56,13 +56,7 @@ function App() {
           <Route
             path="/person"
             element={
-              <Suspense
-                fallback={
-                  <LoadingFallback
-                    message="Loading person details..."
-                  />
-                }
-              >
+              <Suspense fallback={<PersonDetailSkeleton />}>
                 <PersonDetail />
               </Suspense>
             }
