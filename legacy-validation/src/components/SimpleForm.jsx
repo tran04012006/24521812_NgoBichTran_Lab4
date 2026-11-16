@@ -1,84 +1,61 @@
 
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import InputField from "./InputField.jsx";
 
+// Pure validation function.
+function validateEmail(email) {
+  if (!email.trim()) {
+    return "Email is required.";
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return "Please enter a valid email address.";
+  }
+
+  return "";
+}
+
 function SimpleForm() {
-  // Parent form state
+  // Single source of truth for form values.
   const [formValues, setFormValues] = useState({
     email: "",
   });
 
-  // Validation error state
-  const [errors, setErrors] = useState({
-    email: "",
-  });
-
-  // Overall form validity
-  const [isFormValid, setIsFormValid] = useState(false);
+  // State for submission-related UI behavior.
+  const [invalidSubmitCount, setInvalidSubmitCount] =
+    useState(0);
 
   const [submitMessage, setSubmitMessage] = useState("");
 
-  // Receive synchronized value from InputField.
-  const handleValueChange = useCallback((name, value) => {
-    setFormValues((previous) => {
-      if (previous[name] === value) {
-        return previous;
-      }
-
-      return {
-        ...previous,
-        [name]: value,
-      };
-    });
-  }, []);
-
-  // Legacy validation function
-  const validateEmail = (email) => {
-    if (!email.trim()) {
-      return "Email is required.";
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return "Please enter a valid email address.";
-    }
-
-    return "";
+  // Derive validation errors directly from form values.
+  const errors = {
+    email: validateEmail(formValues.email),
   };
 
-  // useEffect #2: validateField()
-  // Recalculate errors whenever form values change.
-  useEffect(() => {
-    const emailError = validateEmail(formValues.email);
+  // Derive overall form validity.
+  const isFormValid = Object.values(errors).every(
+    (error) => error === ""
+  );
 
-    setErrors((previous) => {
-      if (previous.email === emailError) {
-        return previous;
-      }
+  // Update the single source of truth directly.
+  const handleValueChange = (name, value) => {
+    setFormValues((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
 
-      return {
-        ...previous,
-        email: emailError,
-      };
-    });
-  }, [formValues]);
+    setSubmitMessage("");
+  };
 
-  // useEffect #3: calcFormValidity()
-  // Recalculate overall validity when errors change.
-  useEffect(() => {
-    const hasValue = formValues.email.trim() !== "";
-
-    const hasErrors = Object.values(errors).some(
-      (error) => error !== ""
-    );
-
-    setIsFormValid(hasValue && !hasErrors);
-  }, [errors, formValues]);
-
+  // Handle form submission.
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!isFormValid) {
       setSubmitMessage("Please correct the form errors.");
+
+      setInvalidSubmitCount((previous) => previous + 1);
+
       return;
     }
 
@@ -86,12 +63,16 @@ function SimpleForm() {
   };
 
   return (
-    <form className="simple-form" onSubmit={handleSubmit}>
-      <h2>Legacy Validation Form</h2>
+    <form
+      className="simple-form"
+      onSubmit={handleSubmit}
+      noValidate
+    >
+      <h2>Refactored Validation Form</h2>
 
       <p>
-        This form intentionally uses five chained
-        useEffect hooks.
+        This form uses a single source of truth and
+        derives validation results directly from state.
       </p>
 
       <InputField
@@ -100,11 +81,18 @@ function SimpleForm() {
         value={formValues.email}
         error={errors.email}
         onValueChange={handleValueChange}
+        invalidSubmitCount={invalidSubmitCount}
       />
 
       <div className="form-status">
         <strong>Form status:</strong>{" "}
-        {isFormValid ? "Valid" : "Invalid"}
+        <span
+          className={
+            isFormValid ? "status-valid" : "status-invalid"
+          }
+        >
+          {isFormValid ? "Valid" : "Invalid"}
+        </span>
       </div>
 
       <button type="submit">
@@ -112,7 +100,14 @@ function SimpleForm() {
       </button>
 
       {submitMessage && (
-        <p className="submit-message" role="status">
+        <p
+          className={
+            isFormValid
+              ? "submit-message success-message"
+              : "submit-message error-message"
+          }
+          role="status"
+        >
           {submitMessage}
         </p>
       )}
