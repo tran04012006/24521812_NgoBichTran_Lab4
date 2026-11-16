@@ -24,3 +24,38 @@ Task 1: Initialize React Application
 |   +-- Check page rendering
 |   +-- Check dependency versions
 
+
+# Task 2 — Declarative Routing
+
+```text
+Task 2: Implement Declarative Routing
+|
++-- 2.1 Configure Router
+|   +-- Import BrowserRouter
+|   +-- Wrap application with BrowserRouter
+|   +-- Update src/main.jsx
+|
++-- 2.2 Create Page Components
+|   +-- Create Home.jsx
+|   +-- Create About.jsx
+|
++-- 2.3 Implement Route Configuration
+|   +-- Import Routes and Route
+|   +-- Define route "/" using element
+|   +-- Define route "/about" using element
+|   +-- Update src/App.jsx
+|
++-- 2.4 Implement Navigation
+|   +-- Import NavLink
+|   +-- Add Home navigation link
+|   +-- Add About navigation link
+|   +-- Apply active class using isActive
+|   +-- Update src/index.css
+|
++-- 2.5 Verification
+|   +-- Verify Home route
+|   +-- Verify About route
+|   +-- Verify navigation without page reload
+|   +-- Verify active link styling
+|   +-- Verify production build
+
