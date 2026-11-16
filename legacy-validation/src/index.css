@@ -1,0 +1,38 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f6fa;
+  color: #1f2937;
+}
+
+.app {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 24px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.exercise-info {
+  margin-top: 32px;
+  padding: 24px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.exercise-info h2 {
+  margin-top: 0;
+}
