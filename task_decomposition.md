@@ -150,6 +150,54 @@ Task 5: Skeleton UI & Accessibility
 |   +-- Verify stable content dimensions
 |   +-- Verify accessibility attributes
 |   +-- Verify production build
+
+# Task 6 — Master–Detail Views
+
+```text
+Task 6: Master–Detail Views
 |
++-- 6.1 Prepare Person Data
+|   +-- Create src/data/people.js
+|   +-- Define person id, name, role, email
+|
++-- 6.2 Implement Master Layout
+|   +-- Create src/layouts/PeopleLayout.jsx
+|   +-- Display people list
+|   +-- Add NavLink for each person
+|   +-- Add Outlet for selected person
+|
++-- 6.3 Configure Nested Routes
+|   +-- Update src/App.jsx
+|   +-- Add /people route
+|   +-- Add /people/:id route
+|   +-- Add index state for /people
+|   +-- Update MainLayout navigation
+|
++-- 6.4 Implement Detail View
+|   +-- Create src/pages/PersonDetail.jsx
+|   +-- Extract id using useParams()
+|   +-- Find person using people.find()
+|   +-- Display details using dl, dt, dd
+|
++-- 6.5 Handle Invalid IDs
+|   +-- Create NotFoundState.jsx
+|   +-- Detect missing person
+|   +-- Display 404 state for invalid ID
+|
++-- 6.6 Implement Responsive CSS Grid
+|   +-- Update src/index.css
+|   +-- Set grid-template-columns:
+|       minmax(280px, 1fr) 2fr
+|   +-- Stack columns on narrow screens
+|
++-- 6.7 Verification
+|   +-- Verify people list
+|   +-- Verify person selection
+|   +-- Verify URL parameter extraction
+|   +-- Verify invalid ID fallback
+|   +-- Verify responsive grid
+|   +-- Verify production build
+
+
 
 

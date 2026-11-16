@@ -27,6 +27,15 @@ function MainLayout() {
         >
           About
         </NavLink>
+
+        <NavLink
+          to="/people"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+        >
+          People
+        </NavLink>
       </nav>
 
       <div className="route-content">
