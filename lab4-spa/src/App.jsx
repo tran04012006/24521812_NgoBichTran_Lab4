@@ -8,12 +8,20 @@ import PeopleLayout from "./layouts/PeopleLayout";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 
+const PersonDetail = lazy(
+  () => import("./pages/PersonDetail")
+);
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
+
+        <Route
+          path="about"
+          element={<About />}
+        />
 
         <Route
           path="people"
@@ -21,11 +29,14 @@ function App() {
         >
           <Route
             index
-            element={<p>Select a person to view details.</p>}
+            element={
+              <p>Select a person to view details.</p>
+            }
           />
+
           <Route
             path=":id"
-            element={<p>Person details will appear here.</p>}
+            element={<PersonDetail />}
           />
         </Route>
       </Route>
