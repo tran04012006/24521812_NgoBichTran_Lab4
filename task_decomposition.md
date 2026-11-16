@@ -116,5 +116,40 @@ Task 4: Lazy Loading & Suspense
 |   +-- Verify Suspense fallback
 |   +-- Verify production build
 |
+# Task 5 — Skeleton UI, Zero Layout Shift & Accessibility
+
+```text
+Task 5: Skeleton UI & Accessibility
+|
++-- 5.1 Create Skeleton Component
+|   +-- Create src/components/PageSkeleton.jsx
+|   +-- Add heading placeholder
+|   +-- Add paragraph placeholder
+|   +-- Match existing page structure
+|
++-- 5.2 Prevent Layout Shift
+|   +-- Update src/index.css
+|   +-- Match skeleton element heights
+|   +-- Match page spacing
+|   +-- Reserve minimum route content height
+|
++-- 5.3 Integrate Skeleton with Suspense
+|   +-- Update src/layouts/MainLayout.jsx
+|   +-- Import PageSkeleton
+|   +-- Replace Loading... fallback
+|   +-- Preserve shared navigation
+|
++-- 5.4 Implement Accessibility
+|   +-- Apply aria-busy="true" during loading
+|   +-- Add aria-live="polite" loading status
+|   +-- Hide decorative placeholders from screen readers
+|
++-- 5.5 Verification
+|   +-- Verify Home skeleton
+|   +-- Verify About skeleton
+|   +-- Verify stable content dimensions
+|   +-- Verify accessibility attributes
+|   +-- Verify production build
+|
 
 
