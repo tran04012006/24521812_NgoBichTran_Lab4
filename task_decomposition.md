@@ -51,13 +51,38 @@ Task 1: Project Setup & Baseline Application
     +-- Commit 2: Implement baseline routes
     +-- Commit 3: Add baseline UI styling
 
-## Acceptance Criteria
 
-- React 19 is installed.
-- The application starts successfully.
-- Home route (/) works.
-- Person Detail route (/person) works.
-- Navigation works without page reload.
-- PersonDetail uses a static import.
-- Production build succeeds.
-- Three meaningful Git commits are created.
+# Task 2 — React.lazy() & Route-Level Code Splitting
+
+Task 2: React.lazy() & Route-Level Code Splitting
+|
++-- 2.1 Analyze Existing Application
+|   |
+|   +-- Review current static imports
+|   +-- Identify components suitable for lazy loading
+|   +-- Select PersonDetail as the lazy-loaded route
+|
++-- 2.2 Implement Lazy Loading
+|   |
+|   +-- Import lazy from React
+|   +-- Remove static PersonDetail import
+|   +-- Declare PersonDetail with React.lazy()
+|   +-- Use dynamic import()
+|   +-- Keep Home statically imported
+|
++-- 2.3 Add Minimal Suspense Support
+|   |
+|   +-- Import Suspense from React
+|   +-- Wrap PersonDetail with Suspense
+|   +-- Add temporary loading fallback
+|   +-- Preserve existing routes and navigation
+|
++-- 2.4 Verify Code Splitting
+|   |
+|   +-- Run development server
+|   +-- Test Home route
+|   +-- Test PersonDetail route
+|   +-- Run production build
+|   +-- Inspect generated JavaScript chunks
+|   +-- Verify lazy loading in Network panel
+

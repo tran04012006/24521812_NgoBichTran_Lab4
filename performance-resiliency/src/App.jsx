@@ -1,8 +1,14 @@
 
+import { lazy, Suspense } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import PersonDetail from "./pages/PersonDetail";
+
+// Task 2: Route-level code splitting
+// PersonDetail is loaded only when its route is rendered.
+const PersonDetail = lazy(() =>
+  import("./pages/PersonDetail")
+);
 
 function App() {
   return (
@@ -38,11 +44,18 @@ function App() {
 
       <main className="container main-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
           <Route
             path="/person"
-            element={<PersonDetail />}
+            element={
+              <Suspense fallback={<p>Loading person details...</p>}>
+                <PersonDetail />
+              </Suspense>
+            }
           />
 
           <Route
@@ -50,7 +63,9 @@ function App() {
             element={
               <section className="card">
                 <h2>Page not found</h2>
-                <p>The requested page does not exist.</p>
+                <p>
+                  The requested page does not exist.
+                </p>
               </section>
             }
           />
