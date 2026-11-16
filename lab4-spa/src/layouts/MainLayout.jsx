@@ -1,6 +1,7 @@
 
 import { Suspense } from "react";
 import { NavLink, Outlet } from "react-router";
+import PageSkeleton from "../components/PageSkeleton";
 
 function MainLayout() {
   return (
@@ -28,9 +29,11 @@ function MainLayout() {
         </NavLink>
       </nav>
 
-      <Suspense fallback={<p>Loading...</p>}>
-        <Outlet />
-      </Suspense>
+      <div className="route-content">
+        <Suspense fallback={<PageSkeleton />}>
+          <Outlet />
+        </Suspense>
+      </div>
     </main>
   );
 }
