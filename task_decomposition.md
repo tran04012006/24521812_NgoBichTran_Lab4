@@ -89,4 +89,32 @@ Task 3: Nested Routes & Shared Layouts
 |   +-- Verify navigation without page reload
 |   +-- Verify production build
 
+# Task 4 — Lazy Loading & Suspense
+
+```text
+Task 4: Lazy Loading & Suspense
+|
++-- 4.1 Implement Route-Level Code Splitting
+|   +-- Import lazy from React
+|   +-- Replace static Home import with React.lazy()
+|   +-- Replace static About import with React.lazy()
+|   +-- Use dynamic import() for each page
+|   +-- Update src/App.jsx
+|
++-- 4.2 Implement Suspense Boundary
+|   +-- Import Suspense from React
+|   +-- Wrap Outlet in Suspense
+|   +-- Provide minimal loading fallback
+|   +-- Keep shared navigation visible
+|   +-- Update src/layouts/MainLayout.jsx
+|
++-- 4.3 Verification
+|   +-- Verify Home route loads
+|   +-- Verify About route loads
+|   +-- Verify navigation remains functional
+|   +-- Verify route-level JavaScript chunks
+|   +-- Verify Suspense fallback
+|   +-- Verify production build
+|
+
 
