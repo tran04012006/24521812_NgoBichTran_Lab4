@@ -4,8 +4,9 @@ import { NavLink, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import PersonDetailSkeleton from "./components/PersonDetailSkeleton";
+import RouteErrorBoundary from "./components/RouteErrorBoundary";
 
-// Task 2: Lazy-loaded route
+// Task 2: Route-level code splitting
 const PersonDetail = lazy(() =>
   import("./pages/PersonDetail")
 );
@@ -13,6 +14,14 @@ const PersonDetail = lazy(() =>
 function App() {
   return (
     <div className="app">
+      {/* Task 5: Keyboard skip navigation */}
+      <a
+        href="#main-content"
+        className="skip-link"
+      >
+        Skip to main content
+      </a>
+
       <header className="app-header">
         <div className="container header-content">
           <h1 className="app-title">
@@ -46,7 +55,11 @@ function App() {
         </div>
       </header>
 
-      <main className="container main-content">
+      <main
+        id="main-content"
+        className="container main-content"
+        tabIndex={-1}
+      >
         <Routes>
           <Route
             path="/"
@@ -56,9 +69,13 @@ function App() {
           <Route
             path="/person"
             element={
-              <Suspense fallback={<PersonDetailSkeleton />}>
-                <PersonDetail />
-              </Suspense>
+              <RouteErrorBoundary>
+                <Suspense
+                  fallback={<PersonDetailSkeleton />}
+                >
+                  <PersonDetail />
+                </Suspense>
+              </RouteErrorBoundary>
             }
           />
 
