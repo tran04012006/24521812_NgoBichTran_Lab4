@@ -69,10 +69,19 @@ h1 {
   border-color: #dc2626;
 }
 
-.error-message {
+.error-message,
+.status-invalid {
   color: #dc2626;
+}
+
+.error-message {
   font-size: 14px;
   margin-top: 8px;
+}
+
+.status-valid,
+.success-message {
+  color: #15803d;
 }
 
 .form-status {
@@ -91,6 +100,11 @@ button {
 
 button:hover {
   background-color: #1d4ed8;
+}
+
+button:focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 3px;
 }
 
 .submit-message {
