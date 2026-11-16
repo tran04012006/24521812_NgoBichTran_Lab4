@@ -138,6 +138,71 @@ Task 3: Suspense Boundaries & Loading Fallbacks
 |   +-- Verify navigation remains visible
 |   +-- Run production build
 
+# Task 4 — Skeleton UI & Zero Layout Shift
+
+## Objective
+
+Create a skeleton loading interface that closely matches
+the PersonDetail component and minimizes layout shifts
+when React replaces the Suspense fallback.
+
+## Task Decomposition
+
+Task 4: Skeleton UI & Zero Layout Shift
+|
++-- 4.1 Analyze Existing Profile Layout
+|   |
+|   +-- Review PersonDetail.jsx
+|   +-- Identify profile header structure
+|   +-- Identify avatar dimensions
+|   +-- Identify information rows
+|   +-- Identify biography section
+|
++-- 4.2 Create Skeleton Component
+|   |
+|   +-- Create PersonDetailSkeleton.jsx
+|   +-- Implement header skeleton
+|   +-- Implement avatar placeholder
+|   +-- Implement information placeholders
+|   +-- Implement biography placeholders
+|   +-- Hide decorative elements from screen readers
+|
++-- 4.3 Implement Layout Stability
+|   |
+|   +-- Update styles.css
+|   +-- Create shared profile layout class
+|   +-- Set consistent minimum dimensions
+|   +-- Match main spacing and padding
+|   +-- Implement skeleton placeholders
+|   +-- Add optional pulse animation
+|   +-- Support reduced-motion preferences
+|
++-- 4.4 Update PersonDetail
+|   |
+|   +-- Reuse shared profile layout class
+|   +-- Preserve existing profile information
+|   +-- Preserve existing component behavior
+|
++-- 4.5 Integrate Skeleton with Suspense
+|   |
+|   +-- Update App.jsx
+|   +-- Import PersonDetailSkeleton
+|   +-- Replace spinner fallback
+|   +-- Preserve React.lazy() implementation
+|   +-- Preserve routing and navigation
+|
++-- 4.6 Verify CLS and Functionality
+|   |
+|   +-- Run development server
+|   +-- Test Home route
+|   +-- Test PersonDetail route
+|   +-- Simulate slow network
+|   +-- Verify skeleton appears
+|   +-- Verify content replaces skeleton
+|   +-- Inspect layout shifts in DevTools
+|   +-- Run production build
+
+
 
 
 
