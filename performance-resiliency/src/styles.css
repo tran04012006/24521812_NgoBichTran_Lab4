@@ -1,0 +1,203 @@
+
+:root {
+  font-family: Inter, system-ui, Arial, sans-serif;
+  color: #1f2937;
+  background-color: #f3f4f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.container {
+  width: min(100% - 40px, 1000px);
+  margin: 0 auto;
+}
+
+/* Header */
+
+.app-header {
+  background-color: #111827;
+  color: white;
+  padding: 22px 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.app-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #22d3ee;
+}
+
+/* Main layout */
+
+.main-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  line-height: 1.7;
+  color: #6b7280;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #cffafe;
+  color: #0e7490;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+/* Home */
+
+.feature-list {
+  line-height: 2;
+  padding-left: 22px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #0891b2;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.button:hover {
+  background: #0e7490;
+}
+
+/* Person Detail */
+
+.person-card {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.person-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  min-width: 88px;
+  border-radius: 50%;
+  background: #0891b2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.person-header h2 {
+  margin: 0;
+}
+
+.person-role {
+  margin: 6px 0 0;
+}
+
+.person-info {
+  margin-top: 30px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.info-row {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.info-row strong {
+  min-width: 90px;
+}
+
+.info-row span {
+  overflow-wrap: anywhere;
+}
+
+.person-bio {
+  margin-top: 30px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .person-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
