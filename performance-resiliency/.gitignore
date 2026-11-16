@@ -21,3 +21,13 @@ npm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Vitest coverage
+coverage/
+
+# Playwright reports
+playwright-report/
+test-results/
+
+# Temporary files
+*.tmp

@@ -5,13 +5,12 @@ function PersonDetailSkeleton() {
       className="card person-card person-layout person-skeleton"
       aria-label="Person details"
     >
-      {/* Loading region */}
       <div
         className="skeleton-content"
+        role="region"
         aria-busy="true"
         aria-label="Person details are loading"
       >
-        {/* Decorative skeleton placeholders */}
         <div aria-hidden="true">
           {/* Category tag */}
           <div className="skeleton-tag skeleton-block" />
@@ -57,7 +56,6 @@ function PersonDetailSkeleton() {
         </div>
       </div>
 
-      {/* Accessible loading announcement */}
       <p
         className="visually-hidden"
         role="status"
