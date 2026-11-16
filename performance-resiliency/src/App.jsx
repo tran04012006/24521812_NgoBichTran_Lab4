@@ -3,9 +3,9 @@ import { lazy, Suspense } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
+import LoadingFallback from "./components/LoadingFallback";
 
-// Task 2: Route-level code splitting
-// PersonDetail is loaded only when its route is rendered.
+// Task 2: Lazy-loaded route
 const PersonDetail = lazy(() =>
   import("./pages/PersonDetail")
 );
@@ -24,7 +24,9 @@ function App() {
               to="/"
               end
               className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
+                isActive
+                  ? "nav-link active"
+                  : "nav-link"
               }
             >
               Home
@@ -33,7 +35,9 @@ function App() {
             <NavLink
               to="/person"
               className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
+                isActive
+                  ? "nav-link active"
+                  : "nav-link"
               }
             >
               Person Detail
@@ -52,7 +56,13 @@ function App() {
           <Route
             path="/person"
             element={
-              <Suspense fallback={<p>Loading person details...</p>}>
+              <Suspense
+                fallback={
+                  <LoadingFallback
+                    message="Loading person details..."
+                  />
+                }
+              >
                 <PersonDetail />
               </Suspense>
             }
