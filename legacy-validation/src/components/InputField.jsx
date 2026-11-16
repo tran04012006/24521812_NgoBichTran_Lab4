@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 function InputField({
   label,
@@ -7,42 +7,32 @@ function InputField({
   value,
   error,
   onValueChange,
+  invalidSubmitCount,
 }) {
-  // Legacy: Child maintains a duplicate of parent state.
-  const [localValue, setLocalValue] = useState(value);
-
-  // Legacy: Child maintains a duplicate error state.
-  const [localError, setLocalError] = useState(error);
-
   const inputRef = useRef(null);
+  const previousSubmitCount = useRef(invalidSubmitCount);
 
-  // Handle user typing.
+  // Update parent state directly.
   const handleChange = (event) => {
-    setLocalValue(event.target.value);
+    onValueChange(name, event.target.value);
   };
 
-  // useEffect #1: syncToParent()
-  // Synchronize child input state with parent form state.
+  // The only required useEffect:
+  // Scroll to the invalid field after a failed submission.
   useEffect(() => {
-    onValueChange(name, localValue);
-  }, [localValue, name, onValueChange]);
-
-  // useEffect #4: syncErrorsToChild()
-  // Synchronize validation errors from parent to child.
-  useEffect(() => {
-    setLocalError(error);
-  }, [error]);
-
-  // useEffect #5: autoScrollToError()
-  // Scroll the input into view when an error appears.
-  useEffect(() => {
-    if (localError && inputRef.current) {
+    if (
+      invalidSubmitCount > previousSubmitCount.current &&
+      error &&
+      inputRef.current
+    ) {
       inputRef.current.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
       });
     }
-  }, [localError]);
+
+    previousSubmitCount.current = invalidSubmitCount;
+  }, [invalidSubmitCount, error]);
 
   return (
     <div className="input-field">
@@ -53,17 +43,20 @@ function InputField({
         id={name}
         name={name}
         type="email"
-        value={localValue}
+        value={value}
         onChange={handleChange}
-        aria-invalid={Boolean(localError)}
+        aria-invalid={Boolean(error)}
         aria-describedby={
-          localError ? `${name}-error` : undefined
+          error ? `${name}-error` : undefined
         }
       />
 
-      {localError && (
-        <p className="error-message" id={`${name}-error`}>
-          {localError}
+      {error && (
+        <p
+          className="error-message"
+          id={`${name}-error`}
+        >
+          {error}
         </p>
       )}
     </div>
